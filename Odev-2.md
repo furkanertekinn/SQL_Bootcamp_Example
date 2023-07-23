@@ -1,5 +1,5 @@
 ﻿## Müşterilerden elde edilen ciroya göre, 20000-29999 Silver, 30000-49999 Gold, 49999 Üzeri 'Platinum' olacak şekilde raporlayın. Musteri | Ciro | Tip
--- ****************************
+ 
 SELECT  c.ContactName AS Musteri,
         SUM(od.UnitPrice * od.Quantity * (1 - od.Discount)) AS [Ciro]
 FROM Customers c
@@ -22,7 +22,7 @@ JOIN [Order Details] od ON p.ProductID = od.ProductID
 WHERE od.Quantity > 20
 
 
--- Müşteriler arasında en popüler kategori hangisidir?
+## Müşteriler arasında en popüler kategori hangisidir?
 
 SELECT
 TOP 1 ca.CategoryID,
@@ -36,7 +36,7 @@ GROUP BY ca.CategoryID
 ORDER BY adet DESC
 
 
--- Haftanın son günü teslim edilen ürünler hangileridir?
+## Haftanın son günü teslim edilen ürünler hangileridir?
 
 SELECT DISTINCT p.ProductName
 FROM Orders o
@@ -45,7 +45,7 @@ JOIN Products p ON od.ProductID = p.ProductID
 WHERE DATENAME(WEEKDAY,ShippedDate) = 'Friday'
 
 
--- Londra'da yaşayan çalışanların ilgilendiği müşterilerden Almanya'da yaşayanlar kimlerdir?
+## Londra'da yaşayan çalışanların ilgilendiği müşterilerden Almanya'da yaşayanlar kimlerdir?
 
 SELECT DISTINCT c.ContactName AS [İsimler]
 FROM Customers c
@@ -55,8 +55,7 @@ WHERE e.City = 'London' AND
       c.Country = 'Germany'
 
 
--- Her kategorinin en çok satılan ürünü hangisidir?
---*****************************
+## Her kategorinin en çok satılan ürünü hangisidir?
 
 SELECT c.CategoryID,
        p.ProductName,
