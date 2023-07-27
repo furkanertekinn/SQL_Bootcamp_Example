@@ -9,13 +9,13 @@ GROUP BY c.ContactName`
 
 ## 20'den fazla kez sipariş verilmiş ürünler hangileridir?
 
-# -- Subquery --
+### -- Subquery --
 `SELECT DISTINCT ProductName
 FROM Products
 WHERE ProductID IN(SELECT ProductID
                    FROM [Order Details]
 				   WHERE Quantity > 20)`
-# -- Join --
+### -- Join --
 `SELECT DISTINCT ProductName
 FROM Products p
 JOIN [Order Details] od ON p.ProductID = od.ProductID
