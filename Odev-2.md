@@ -1,13 +1,13 @@
 ﻿## Müşterilerden elde edilen ciroya göre, 20000-29999 Silver, 30000-49999 Gold, 49999 Üzeri 'Platinum' olacak şekilde raporlayın. Musteri | Ciro | Tip
  
 `SELECT   c.ContactName AS Musteri,
-        SUM(od.UnitPrice * od.Quantity * (1 - od.Discount)) AS [Ciro],
+          SUM(od.UnitPrice * od.Quantity * (1 - od.Discount)) AS [Ciro],
 		CASE
 		   WHEN  SUM(od.UnitPrice * od.Quantity * (1 - od.Discount)) < 20000 THEN 'Bilinmiyor'
-	       WHEN  SUM(od.UnitPrice * od.Quantity * (1 - od.Discount)) < 30000 THEN 'Silver'
+	           WHEN  SUM(od.UnitPrice * od.Quantity * (1 - od.Discount)) < 30000 THEN 'Silver'
 		   WHEN  SUM(od.UnitPrice * od.Quantity * (1 - od.Discount)) < 49999  THEN 'Gold'
 		   ELSE  'Platinum'
-	   END AS Tip
+	       END AS Tip
 FROM Customers c 
 JOIN Orders o ON c.CustomerID = o.CustomerID
 JOIN [Order Details] od ON o.OrderID = od.OrderID
