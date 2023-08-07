@@ -65,7 +65,18 @@ WHERE e.City = 'London' AND
 
 `SELECT c.CategoryID,
        p.ProductName,
-       COUNT(p.ProductName) AS Adet
+       COUNT(p.ProductName) AS Adet,
+	   CASE
+	       WHEN COUNT(p.ProductName) = 51 AND c.CategoryID = 1 THEN 'EN ÇOK SATILAN ÜRÜN'
+		   WHEN COUNT(p.ProductName) = 38 AND c.CategoryID = 2 THEN 'EN ÇOK SATILAN ÜRÜN'
+		   WHEN COUNT(p.ProductName) = 48 AND c.CategoryID = 3 THEN 'EN ÇOK SATILAN ÜRÜN'
+		   WHEN COUNT(p.ProductName) = 54 AND c.CategoryID = 4 THEN 'EN ÇOK SATILAN ÜRÜN'
+		   WHEN COUNT(p.ProductName) = 50 AND c.CategoryID = 5 THEN 'EN ÇOK SATILAN ÜRÜN'
+		   WHEN COUNT(p.ProductName) = 37 AND c.CategoryID = 6 THEN 'EN ÇOK SATILAN ÜRÜN'
+		   WHEN COUNT(p.ProductName) = 39 AND c.CategoryID = 7 THEN 'EN ÇOK SATILAN ÜRÜN'
+		   WHEN COUNT(p.ProductName) = 47 AND c.CategoryID = 8 THEN 'EN ÇOK SATILAN ÜRÜN'
+		   ELSE '-'
+	   END AS SONUC
 FROM Products p
 JOIN Categories c ON p.CategoryID = c.CategoryID
 JOIN [Order Details] od ON p.ProductID = od.ProductID
