@@ -46,7 +46,7 @@ where FirstName not like '%e%'
 
 `select *
 from Products
-where UnitPrice not like '%.00%'`
+where UnitPrice not like '%.00'`
 
 ## Stoğu olmasına rağmen artık satışı yapılmayan ürünler hangileridir?
 
