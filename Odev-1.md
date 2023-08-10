@@ -86,7 +86,7 @@ from Orders`
 `select top 5 Freight as 'Ücret',
           ShipCountry [Ülke]
 from Orders 
-order by Freight desc`
+order by Freight DESC`
 
 
 ## Her çalışana kurumsal bir email adresi oluşturulacak. Çalışanın adının ilk harfi.soyadı ve sonunda @northwind.com olacak şekilde. 
