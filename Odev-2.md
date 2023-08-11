@@ -81,5 +81,5 @@ FROM Products p
 JOIN Categories c ON p.CategoryID = c.CategoryID
 JOIN [Order Details] od ON p.ProductID = od.ProductID
 GROUP BY c.CategoryID,p.ProductName
-ORDER BY c.CategoryID , Adet`
+ORDER BY c.CategoryID ,Adet`
 
